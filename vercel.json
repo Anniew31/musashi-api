@@ -1,0 +1,66 @@
+{
+  "installCommand": "pnpm install --frozen-lockfile",
+  "rewrites": [
+    {
+      "source": "/api/analyze-text",
+      "destination": "/api/analyze-text.ts"
+    },
+    {
+      "source": "/api/ground-probability",
+      "destination": "/api/ground-probability.ts"
+    },
+    {
+      "source": "/api/markets/arbitrage",
+      "destination": "/api/markets/arbitrage.ts"
+    },
+    {
+      "source": "/api/markets/movers",
+      "destination": "/api/markets/movers.ts"
+    },
+    {
+      "source": "/api/health",
+      "destination": "/api/health.ts"
+    },
+    {
+      "source": "/api/feed",
+      "destination": "/api/feed.ts"
+    },
+    {
+      "source": "/api/feed/stats",
+      "destination": "/api/feed/stats.ts"
+    },
+    {
+      "source": "/api/feed/accounts",
+      "destination": "/api/feed/accounts.ts"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/cron/collect-tweets",
+      "schedule": "*/2 * * * *"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Credentials",
+          "value": "true"
+        },
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version, Authorization"
+        }
+      ]
+    }
+  ]
+}

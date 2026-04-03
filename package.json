@@ -1,0 +1,38 @@
+{
+  "name": "musashi-api",
+  "version": "1.0.0",
+  "description": "Standalone Musashi API, SDK, and backend services for prediction market intelligence.",
+  "type": "module",
+  "packageManager": "pnpm@10.17.1",
+  "scripts": {
+    "dev": "node --import tsx scripts/local-api-server.ts",
+    "local:api": "node --import tsx scripts/local-api-server.ts",
+    "backend:dev": "node server/api-server.mjs",
+    "test:agent": "node --import tsx scripts/test-agent-api.ts",
+    "test:agent:local": "MUSASHI_API_BASE_URL=http://127.0.0.1:3000 node --import tsx scripts/test-agent-api.ts",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p api/tsconfig.json",
+    "clean": "rm -rf dist .vercel"
+  },
+  "keywords": [
+    "musashi",
+    "prediction-markets",
+    "polymarket",
+    "kalshi",
+    "sdk",
+    "api"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "@supabase/supabase-js": "^2.97.0",
+    "@vercel/kv": "^3.0.0",
+    "@vercel/node": "^3.0.21"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "tsx": "^4.21.0",
+    "typescript": "^5.5.2"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
